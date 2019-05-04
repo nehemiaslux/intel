@@ -1,0 +1,17 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    
+    <!--Shape for categories -->
+
+    <h2 class="text center">intelaf sirviendote</h2>
+
+    <div class="row linea1">
+      <div class = "col col-50 " ng-repeat="n in categoria">
+        <button class="button button-positive button-outline button-block">
+          {{n.cat}}<i class="{{n.ico}}"></i>
+        </button>
+      </div>
+    </div>
+
+     </ion-content>
+</ion-view>
