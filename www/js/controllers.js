@@ -4,16 +4,22 @@ angular.module('starter.controllers', [])
   //categories
   $scope.categoria = [{
     cat:"Celulares",
-    ico:""
+    ico:"fas fa-mobile-alt"
   },{
     cat:"Tablets",
-    ico:""    
+    ico:"fas fa-tablet-alt"    
   },{
     cat:"Teclados",
-    ico:""
+    ico:"fas fa-keyboard"
   },{
-    cat:"Audio",
-    ico:""      
+    cat:"impresora",
+    ico:"fas fa-print"
+    },{
+    cat:"audio",
+    ico:"fas fa-file-audio"
+    },{
+    cat:"laptops",
+    ico:"fas fa-laptop"      
   }]
 })
 
