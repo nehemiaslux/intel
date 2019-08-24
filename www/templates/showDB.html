@@ -1,0 +1,18 @@
+<ion-view view-title="{{categorySelected.nombre}}">
+	<ion-content has-subheader="false">
+		<div class="row">
+			<div class="col" ng-repeat="x in displayProducts | filter: categorySelected.nombre">
+				<p>Producto</p>
+				<p>{{ x.producto }}</p>
+				<p>Categoria</p>
+				<p>{{ x.categoria }}</p>
+				<p>Precio</p>
+				<p>{{ x.precio }}</p>
+				<p>Cantidad</p>
+				<p>{{ x.cantidad }}</p>
+				<p>CodProducto</p>
+				<p>{{ x.codigoProducto }}</p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

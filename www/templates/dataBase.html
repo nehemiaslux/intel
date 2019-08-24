@@ -1,0 +1,14 @@
+<ion-view view-title="dataBase">
+	<ion-content has-subheader="false">
+		<h1>DataBase</h1>
+		 <!-- Shape for Categories -->
+    <div class="row row-data">
+    	<div class="col col-50" ng-repeat=" x in categories">
+    		<button class="button button-outline button-block button-dark" ng-click="CallFunction(x)" ui-sref="tab.showDB({categorie:x.nombre})">
+    			{{ x.nombre }}
+    			<i class="{{ x.icono }}"></i>
+    		</button>
+    	</div>
+    </div> 
+	</ion-content>
+</ion-view>

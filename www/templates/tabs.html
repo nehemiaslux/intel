@@ -6,19 +6,17 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
   <!-- Dashboard Tab -->
-  <ion-tab title="inicio" icon-off="ion-power" icon-on="ion-power" href="#/tab/categories">
-    <ion-nav-view name="tab-categories"></ion-nav-view>
+  <ion-tab title="inicio" icon-off="ion-images" icon-on="ion-images" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
-  <ion-tab title="ge" icon-off="ion-closed-captioning" icon-on="ion-closed-captioning" href="#/tab/chats">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
+  <!-- Show Data Tab -->
+  <ion-tab title="off" icon-off="ion-checkmark-circled" icon-on="ion-close-round" href="#/tab/datos">
+    <ion-nav-view name="tab-datos"></ion-nav-view>
   </ion-tab>
 
-  <!-- Account Tab -->
-  <ion-tab title="config" icon-off="ion-android-settings" icon-on="ion-android-settings" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
+  <!-- DB Tab -->
+  <ion-tab title="Base de datos" icon-off="ion-eye-disabled" icon-on="ion-eye" href="#/tab/dataBase">
+    <ion-nav-view name="tab-data"></ion-nav-view>
   </ion-tab>
-
-
 </ion-tabs>

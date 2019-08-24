@@ -1,49 +1,92 @@
+// Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDaEK7H4kt9vezAZAFLPnltBjJDIYZ2XRY",
+    authDomain: "studentdb-9e377.firebaseapp.com",
+    databaseURL: "https://studentdb-9e377.firebaseio.com",
+    projectId: "studentdb-9e377",
+    storageBucket: "studentdb-9e377.appspot.com",
+    messagingSenderId: "151487969584",
+    appId: "1:151487969584:web:ac7bec7dc487e700"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // Get a reference to the database service
+  var database = firebase.database();
 angular.module('starter.controllers', [])
-
-.controller('categoriesCtrl', function($scope) {
-  //categories
-  $scope.categoria = [{
-    cat:"Celulares",
-    ico:"fas fa-mobile-alt"
+.controller('DashCtrl', function($scope, $rootScope) {
+  
+})
+.controller('dataCtrl', function($scope, $rootScope) {
+  $scope.pers = 
+  [
+  {
+    nombre: '',
+    edad: 18
   },{
-    cat:"Tablets",
-    ico:"fas fa-tablet-alt"    
+    nombre: '',
+    edad: 15
   },{
-    cat:"Teclados",
-    ico:"fas fa-keyboard"
-  },{
-    cat:"impresora",
-    ico:"fas fa-print"
-    },{
-    cat:"audio",
-    ico:"fas fa-file-audio"
-    },{
-    cat:"laptops",
-    ico:"fas fa-laptop"      
-  }]
+    nombre: '',
+    edad: 25
+  }
+  ]
+  $scope.data = function (x) {
+    $rootScope.datos = x;
+  }
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+.controller('showCtrl', function($scope, $rootScope) {
+  $rootScope.specific = $rootScope.datos;
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('dbCtrl', function ($scope, $rootScope, $state) {
+  $scope.categories = [
+  {
+    nombre: 'Telefonía',
+    icono: 'fas fa-mobile'
+  }, {
+    nombre: 'Impresoras',
+    icono: 'fas fa-print'
+  }, {
+    nombre: 'Gaming',
+    icono: 'fas fa-gamepad'
+  }, {
+    nombre: 'Computadoras',
+    icono: 'fas fa-laptop-code'
+  }, {
+    nombre: 'Accesorios',
+    icono: 'fas fa-keyboard'
+  }, {
+    nombre: 'Componentes',
+    icono: 'fab fa-creative-commons-remix'
+  }, {
+    nombre: 'Mobiliario',
+    icono: 'fas fa-couch'
+  }, {
+    nombre: 'Cámaras',
+    icono: 'fas fa-video'
+  }, {
+    nombre: 'Redes',
+    icono: 'fas fa-network-wired'
+  }, {
+    nombre: 'Juegos',
+    icono: 'fab fa-steam'
+  }
+  ];
+  $rootScope.data = [];
+  var starCountRef = firebase.database().ref('Productos/');
+  starCountRef.on('value', function(snapshot) {  
+    snapshot.forEach(function(keysSnapshot) {
+      $rootScope.data.push(keysSnapshot.val());
+      console.log($rootScope.data)
+    });
+  });
+  $scope.CallFunction = function(x) {
+    $rootScope.categorySelected = x;
+    console.log($rootScope.categorySelected);
+  }
 })
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
+.controller('showCtrl', function($scope, $rootScope) {
+  $scope.displayProducts = $rootScope.data;
+})

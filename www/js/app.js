@@ -44,46 +44,53 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.categories', {
-    url: '/categories',
+  .state('tab.dash', {
+    url: '/dash',
     views: {
-      'tab-categories': {
-        templateUrl: 'templates/tab-categories.html',
-        controller: 'categoriesCtrl'
+      'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'DashCtrl'
       }
     }
   })
-
-  .state('tab.chats', {
-      url: '/chats',
+    .state('tab.datos', {
+      url: '/datos',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-datos': {
+          templateUrl: 'templates/datos.html',
+          controller: 'dataCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+    .state('tab.showData', {
+      url: '/datos/:userId',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-datos': {
+          templateUrl: 'templates/showData.html',
+          controller: 'showCtrl'
         }
       }
     })
-
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+    .state('tab.dataBase', {
+      url: '/dataBase',
+      views: {
+        'tab-data': {
+          templateUrl: 'templates/dataBase.html',
+          controller: 'dbCtrl'
+        }
       }
-    }
-  });
-
+    })
+    .state('tab.showDB', {
+      url: '/dataBase/:categorie',
+      // url: '/showDB',
+      views: {
+        'tab-data': {
+          templateUrl: 'templates/showDB.html',
+          controller: 'showCtrl'
+        }
+      }
+    })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/categories');
+  $urlRouterProvider.otherwise('/tab/dash');
 
 });

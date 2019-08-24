@@ -1,0 +1,9 @@
+<ion-view view-title="Contenido!">
+	<ion-content has-subheader="false">
+		<div class="row" ng-repeat="x in pers">
+			<div class="col" ng-click="data(x)">
+				<p ui-sref="tab.showData({userId:x.nombre})" ui-sref-active="active">{{x.nombre}}</p>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
